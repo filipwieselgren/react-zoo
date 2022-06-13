@@ -30,22 +30,23 @@ export const ShowAnimals = () => {
   const APIURL = "https://animals.azurewebsites.net/api/animals";
 
   useEffect(() => {
-    axios
-      .get<IAnimals[]>(APIURL)
-      .then((data) => {
-        if (animals.length === 0) {
+    let local: IAnimals[] = JSON.parse(localStorage.getItem("animals") || "[]");
+
+    console.log(local.length);
+    if (local.length === 0) {
+      axios
+        .get<IAnimals[]>(APIURL)
+        .then((data) => {
           setAnimals(data.data);
           localStorage.setItem("animals", JSON.stringify(data.data));
-        } else {
-          setAnimals(JSON.parse(localStorage.getItem("animals") || "[]"));
-        }
-      })
-      .catch((error) => {
-        console.log(error.response.data.message);
-      });
+        })
+        .catch((error) => {
+          console.log(error.response.data.message);
+        });
+    } else {
+      setAnimals(local);
+    }
   }, []);
-
-  let time = new Date().getTime();
 
   const allAnimals = animals.map((a) => {
     return (
@@ -54,7 +55,12 @@ export const ShowAnimals = () => {
           <Name>
             {a.name}
             <Line>|</Line>
-            <span> {`Was fed ${+time - +a.lastFed} hours ago`}</span>
+
+            {}
+            <span>
+              {" "}
+              {`Was fed ${+new Date() - Date.parse(a.lastFed)} hours ago`}
+            </span>
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>

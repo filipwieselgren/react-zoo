@@ -72,6 +72,12 @@ export const AboutBtnWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+export const FeedBtnWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+`;
 
 export const SingleAnimalWrapper = styled.div`
   height: 100vh;
