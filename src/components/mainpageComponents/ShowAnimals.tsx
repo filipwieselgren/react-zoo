@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IAnimals } from "../../models/IAnimals";
+import logo from "../../images/feed-animals.png";
 import {
   AnimalNameWrapper,
   AnimalsImgWrapper,
@@ -9,10 +10,12 @@ import {
   BirthMedHeaderWrappper,
   BirthMedTxtWrappper,
   BirthMedWrapper,
+  LogoWrapper,
   MainWrapper,
+  NavWrapper,
   ShortInfoWrapper,
 } from "../../styleComponents/AnimalsWrappers";
-import { AnimalsImg } from "../../styleComponents/Images";
+import { AnimalsImg, LogoImg } from "../../styleComponents/Images";
 import {
   BirthHeader,
   Birthtxt,
@@ -32,17 +35,11 @@ export const ShowAnimals = () => {
   useEffect(() => {
     let local: IAnimals[] = JSON.parse(localStorage.getItem("animals") || "[]");
 
-    console.log(local.length);
     if (local.length === 0) {
-      axios
-        .get<IAnimals[]>(APIURL)
-        .then((data) => {
-          setAnimals(data.data);
-          localStorage.setItem("animals", JSON.stringify(data.data));
-        })
-        .catch((error) => {
-          console.log(error.response.data.message);
-        });
+      axios.get<IAnimals[]>(APIURL).then((data) => {
+        setAnimals(data.data);
+        localStorage.setItem("animals", JSON.stringify(data.data));
+      });
     } else {
       setAnimals(local);
     }
@@ -57,10 +54,7 @@ export const ShowAnimals = () => {
             <Line>|</Line>
 
             {}
-            <span>
-              {" "}
-              {`Was fed ${+new Date() - Date.parse(a.lastFed)} hours ago`}
-            </span>
+            <span>Behöver matas: Ja</span>
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>

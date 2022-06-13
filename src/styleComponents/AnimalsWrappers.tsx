@@ -6,6 +6,18 @@ interface IAnimalStyledImg {
   animalimg: string;
 }
 
+export const NavWrapper = styled.nav`
+  width: 100vw;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
+export const LogoWrapper = styled.div`
+  width: 80%;
+`;
+
 export const AnimalWrapper = styled(Link)`
   width: 40vw;
   border: 0.5px solid #333;
@@ -38,6 +50,12 @@ export const AnimalNameWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin: 0.5em 0em;
+`;
+export const SingleAnimalNameWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0em;
+  width: 96%;
 `;
 
 export const ShortInfoWrapper = styled.div`
@@ -80,7 +98,6 @@ export const FeedBtnWrapper = styled.div`
 `;
 
 export const SingleAnimalWrapper = styled.div`
-  height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -93,7 +110,7 @@ export const SingleAnimaInfolWrapper = styled.div`
   border-radius: 2px;
   background-color: #f18b27;
   margin: 0.5rem;
-  height: 90vh;
+  height: 70vh;
   text-decoration: none;
 `;
 

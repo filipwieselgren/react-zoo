@@ -3,3 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.name-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-name {
+  display: flex;
+  align-items: center;
+}
+
+.long-description-wrapperr {
+  height: 7em;
+}
+
+.long-description {
+  height: 7em;
+  overflow: scroll;
+}

@@ -22,3 +22,7 @@ export const SingleAnimalImg = styled.div`
   height: 100%;
   border-radius: 2px;
 `;
+
+export const LogoImg = styled.img`
+  width: 100%;
+`;
