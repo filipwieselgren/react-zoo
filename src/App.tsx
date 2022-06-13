@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+import "./App.css";
+import { ShowAnimals } from "./components/mainpageComponents/ShowAnimals";
+import { NotFound } from "./components/notfound/NotFound";
+import { SingleAnimal } from "./components/singleanimalComponents/SingleAnimal";
+import Store from "./redux/Store";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={Store}>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<ShowAnimals />}></Route>
+          <Route path="/animal/:id" element={<SingleAnimal />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </HashRouter>
+    </Provider>
   );
 }
 
