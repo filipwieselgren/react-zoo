@@ -31,43 +31,52 @@ export const SingleAnimal = () => {
     setSingleAnimals(JSON.parse(localStorage.getItem("animals") || "[]"));
   }, []);
 
+  let interval: NodeJS.Timer;
+
   const checkTime = () => {
-    const timeMilliseconds = singleAnimals.filter((s) => {
+    // console.log("singleAnimal: " + singleAnimals);
+
+    const findAnimal = singleAnimals.filter((s) => {
       return s.id === Number(params.id);
     });
 
-    const time = timeMilliseconds.map((tm) => {
-      return +new Date() - Date.parse(tm.lastFed);
+    const time = findAnimal.map((fa) => {
+      return +new Date().getTime() - +new Date(fa.lastFed).getTime();
     });
 
-    const countHours = +time / 3600000;
+    console.log(time[0]);
+
+    // const countHours = +time[0] / 3600000;
 
     // 10800000
 
-    if (countHours >= 3) {
-      timeMilliseconds.map((tm) => {
-        tm.isFed = false;
+    if (time[0] >= 10800000) {
+      setGotFed(false);
+      clearInterval(interval);
+      findAnimal.map((fa) => {
+        fa.isFed = false;
         storageLocal(singleAnimals);
         setSingleAnimals(JSON.parse(localStorage.getItem("animals") || "[]"));
-        // console.log(tm.isFed);
       });
     }
-
-    // console.log(+time);
   };
 
   useEffect(() => {
-    setInterval(() => {
-      checkTime();
-    }, 1000);
-  }, []);
+    if (gotFed) {
+      console.log("setInterval körs");
+
+      interval = setInterval(() => {
+        checkTime();
+      }, 3000);
+    }
+  });
 
   // Flytta till ShowAnimals
   const feed = (sa: ISingleAnimal) => {
     if (sa.isFed === false) {
       sa.isFed = true;
       setGotFed(true);
-      sa.lastFed = new Date().toString();
+      sa.lastFed = new Date().toISOString();
       storageLocal(singleAnimals);
     } else {
       alert(`${sa.name} behöver inte matas`);
@@ -97,7 +106,10 @@ export const SingleAnimal = () => {
             <ShortInfo>
               <div>
                 {sa.name} matades senast:
-                <div>{sa.lastFed.slice(0, 25)}</div>
+                <div>
+                  {sa.lastFed.split("T")[0]} klockan{" "}
+                  {sa.lastFed.split("T")[1].split(".")[0]}
+                </div>
               </div>
               <div className="long-description-wrapper">
                 <div className="long-description">{sa.longDescription}</div>
@@ -119,6 +131,7 @@ export const SingleAnimal = () => {
       );
     }
   });
+  console.log(gotFed);
 
   return (
     <>

@@ -46,6 +46,8 @@ export const ShowAnimals = () => {
     }
   }, []);
 
+  console.log(animals);
+
   const allAnimals = animals.map((a) => {
     return (
       <AnimalWrapper to={"/animal/" + a.id} key={a.id}>
