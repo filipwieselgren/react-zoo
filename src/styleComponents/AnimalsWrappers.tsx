@@ -60,6 +60,10 @@ export const SingleAnimalNameWrapper = styled.div`
 
 export const ShortInfoWrapper = styled.div`
   width: 100%;
+  height: 100%;
+`;
+export const SingleInfoWrapper = styled.div`
+  width: 100%;
 `;
 
 export const BirthMedWrapper = styled.div`
@@ -87,8 +91,10 @@ export const BirthMedTxtWrappper = styled.div`
 
 export const AboutBtnWrapper = styled.div`
   width: 100%;
+  height: 30%;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 export const FeedBtnWrapper = styled.div`
   width: 100%;

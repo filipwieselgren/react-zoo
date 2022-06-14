@@ -13,9 +13,11 @@ import {
   SingleAnimalNameWrapper,
   SingleAnimalsImgWrapper,
   SingleAnimalWrapper,
+  SingleInfoWrapper,
 } from "../../styleComponents/AnimalsWrappers";
 import { BackBtn, FeedBtn } from "../../styleComponents/Buttons";
 import { SingleAnimalImg } from "../../styleComponents/Images";
+import { ShortInfo } from "../../styleComponents/Text";
 
 export const SingleAnimal = () => {
   const [singleAnimals, setSingleAnimals] = useState<ISingleAnimal[]>([]);
@@ -47,12 +49,11 @@ export const SingleAnimal = () => {
         tm.isFed = false;
         storageLocal(singleAnimals);
         setSingleAnimals(JSON.parse(localStorage.getItem("animals") || "[]"));
-
-        console.log(tm.isFed);
+        // console.log(tm.isFed);
       });
     }
 
-    console.log(+time);
+    // console.log(+time);
   };
 
   useEffect(() => {
@@ -92,25 +93,28 @@ export const SingleAnimal = () => {
           <SingleAnimalsImgWrapper>
             <SingleAnimalImg animalimg={sa.imageUrl}></SingleAnimalImg>
           </SingleAnimalsImgWrapper>
-          <ShortInfoWrapper>
-            <div>
-              {sa.name} matades senast:
-              <div>{sa.lastFed.slice(0, 25)}</div>
-            </div>
-
-            <div className="long-description-wrapper">
-              <div className="long-description">{sa.longDescription}</div>
-            </div>
-            <FeedBtnWrapper>
-              <FeedBtn
-                onClick={() => {
-                  feed(sa);
-                }}
-              >
-                {sa.isFed === true ? `${sa.name} är matad` : `Mata ${sa.name}`}
-              </FeedBtn>
-            </FeedBtnWrapper>
-          </ShortInfoWrapper>
+          <SingleInfoWrapper>
+            <ShortInfo>
+              <div>
+                {sa.name} matades senast:
+                <div>{sa.lastFed.slice(0, 25)}</div>
+              </div>
+              <div className="long-description-wrapper">
+                <div className="long-description">{sa.longDescription}</div>
+              </div>
+              <FeedBtnWrapper>
+                <FeedBtn
+                  onClick={() => {
+                    feed(sa);
+                  }}
+                >
+                  {sa.isFed === true
+                    ? `${sa.name} är matad`
+                    : `Mata ${sa.name}`}
+                </FeedBtn>
+              </FeedBtnWrapper>
+            </ShortInfo>
+          </SingleInfoWrapper>
         </div>
       );
     }

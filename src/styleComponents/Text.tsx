@@ -14,3 +14,8 @@ export const BirthHeader = styled.span``;
 export const Birthtxt = styled.span``;
 export const MedHeader = styled.span``;
 export const Medtxt = styled.span``;
+
+export const ShortInfo = styled.div`
+  width: 96%;
+  padding: 1em;
+`;

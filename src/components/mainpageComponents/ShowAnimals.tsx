@@ -23,6 +23,7 @@ import {
   MedHeader,
   Medtxt,
   Name,
+  ShortInfo,
 } from "../../styleComponents/Text";
 import { AboutBtn } from "./AboutBtn";
 
@@ -51,10 +52,10 @@ export const ShowAnimals = () => {
         <AnimalNameWrapper>
           <Name>
             {a.name}
-            <Line>|</Line>
+            {/* <Line>|</Line> */}
 
             {}
-            <span>Behöver matas: Ja</span>
+            {/* <span>Behöver matas: Ja</span> */}
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>

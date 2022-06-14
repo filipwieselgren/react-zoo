@@ -8,6 +8,10 @@ export const StyledAboutBtn = styled.button`
   background-color: #f2b325;
   box-shadow: 0px 5px 10px #57575796;
   width: 90%;
+
+  & {
+    cursor: pointer;
+  }
 `;
 
 export const FeedBtn = styled.button`
@@ -17,6 +21,10 @@ export const FeedBtn = styled.button`
   background-color: #f2b325;
   box-shadow: 0px 5px 10px #57575796;
   width: 90%;
+
+  & {
+    cursor: pointer;
+  }
 `;
 export const BackBtn = styled(Link)`
   padding: 0.5em;
@@ -26,4 +34,8 @@ export const BackBtn = styled(Link)`
   box-shadow: 0px 5px 10px #57575796;
   text-decoration: none;
   color: #333;
+
+  & {
+    cursor: pointer;
+  }
 `;
