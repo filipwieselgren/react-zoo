@@ -12,6 +12,14 @@ export const StyledAboutBtn = styled.button`
   & {
     cursor: pointer;
   }
+
+  @media only screen and (min-width: 1024px) {
+    padding: 1em;
+  }
+  @media only screen and (min-width: 1280px) {
+    padding: 2em;
+    font-size: 1em;
+  }
 `;
 
 export const FeedBtn = styled.button`

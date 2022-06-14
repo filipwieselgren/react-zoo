@@ -34,8 +34,6 @@ export const SingleAnimal = () => {
   let interval: NodeJS.Timer;
 
   const checkTime = () => {
-    // console.log("singleAnimal: " + singleAnimals);
-
     const findAnimal = singleAnimals.filter((s) => {
       return s.id === Number(params.id);
     });
@@ -43,14 +41,8 @@ export const SingleAnimal = () => {
     const time = findAnimal.map((fa) => {
       return +new Date().getTime() - +new Date(fa.lastFed).getTime();
     });
-
-    console.log(time[0]);
-
-    // const countHours = +time[0] / 3600000;
-
-    // 10800000
-
-    if (time[0] >= 10800000) {
+    // 10800000;
+    if (time[0] >= 5000) {
       setGotFed(false);
       clearInterval(interval);
       findAnimal.map((fa) => {
@@ -63,11 +55,9 @@ export const SingleAnimal = () => {
 
   useEffect(() => {
     if (gotFed) {
-      console.log("setInterval körs");
-
       interval = setInterval(() => {
         checkTime();
-      }, 3000);
+      }, 1000);
     }
   });
 
@@ -131,7 +121,6 @@ export const SingleAnimal = () => {
       );
     }
   });
-  console.log(gotFed);
 
   return (
     <>

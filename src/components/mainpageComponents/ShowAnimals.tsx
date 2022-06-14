@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { IAnimals } from "../../models/IAnimals";
-import logo from "../../images/feed-animals.png";
 import {
   AnimalNameWrapper,
   AnimalsImgWrapper,
@@ -10,9 +8,7 @@ import {
   BirthMedHeaderWrappper,
   BirthMedTxtWrappper,
   BirthMedWrapper,
-  LogoWrapper,
   MainWrapper,
-  NavWrapper,
   ShortInfoWrapper,
 } from "../../styleComponents/AnimalsWrappers";
 import { AnimalsImg, LogoImg } from "../../styleComponents/Images";
@@ -23,7 +19,6 @@ import {
   MedHeader,
   Medtxt,
   Name,
-  ShortInfo,
 } from "../../styleComponents/Text";
 import { AboutBtn } from "./AboutBtn";
 
@@ -46,18 +41,16 @@ export const ShowAnimals = () => {
     }
   }, []);
 
-  console.log(animals);
-
   const allAnimals = animals.map((a) => {
     return (
       <AnimalWrapper to={"/animal/" + a.id} key={a.id}>
         <AnimalNameWrapper>
           <Name>
             {a.name}
-            {/* <Line>|</Line> */}
+            <Line>|</Line>
 
             {}
-            {/* <span>Behöver matas: Ja</span> */}
+            <span>{`Behöver matas: ${a.isFed === false ? "Ja" : "Nej"}`}</span>
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>

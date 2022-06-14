@@ -12,10 +12,22 @@ export const NavWrapper = styled.nav`
   display: flex;
   justify-content: center;
   align-items: flex-end;
+
+  @media only screen and (min-width: 768px) {
+    height: 30vh;
+  }
+  @media only screen and (min-width: 1024px) {
+    max-height: 40vh;
+    min-height: 40vh;
+  }
 `;
 
 export const LogoWrapper = styled.div`
   width: 80%;
+
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
+  }
 `;
 
 export const AnimalWrapper = styled(Link)`
@@ -26,6 +38,10 @@ export const AnimalWrapper = styled(Link)`
   margin: 0.5rem;
   height: 33vh;
   text-decoration: none;
+
+  @media only screen and (min-width: 1024px) {
+    height: 70vh;
+  }
 `;
 
 export const MainWrapper = styled.main`
@@ -80,6 +96,9 @@ export const BirthMedHeaderWrappper = styled.div`
   display: flex;
   justify-content: space-between;
   color: #333;
+  @media only screen and (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 export const BirthMedTxtWrappper = styled.div`
   font-size: 0.5rem;
@@ -87,6 +106,9 @@ export const BirthMedTxtWrappper = styled.div`
   display: flex;
   justify-content: space-between;
   color: #333;
+  @media only screen and (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const AboutBtnWrapper = styled.div`

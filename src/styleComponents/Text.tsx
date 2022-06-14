@@ -6,6 +6,10 @@ export const Name = styled.div`
   font-size: 0.5rem;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Line = styled.span``;
