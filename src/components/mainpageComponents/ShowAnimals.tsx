@@ -54,7 +54,13 @@ export const ShowAnimals = () => {
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>
-          <AnimalsImg animalimg={a.imageUrl}></AnimalsImg>
+          <AnimalsImg
+            animalimg={a.imageUrl}
+            onError={(e) => {
+              e.currentTarget.src =
+                "https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg";
+            }}
+          ></AnimalsImg>
         </AnimalsImgWrapper>
         <ShortInfoWrapper>
           <BirthMedWrapper>
