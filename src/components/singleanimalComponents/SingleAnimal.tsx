@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { IAnimals } from "../../models/IAnimals";
 import { ISingleAnimal } from "../../models/ISingleAnimal";
 import { animalSlice, isFed } from "../../redux/features/animalSlice";
 import { IState } from "../../redux/features/IState";
@@ -22,14 +22,38 @@ import { ShortInfo } from "../../styleComponents/Text";
 export const SingleAnimal = () => {
   const [singleAnimals, setSingleAnimals] = useState<ISingleAnimal[]>([]);
   const [gotFed, setGotFed] = useState<boolean>(false);
+  const [animal, setAnimal] = useState<ISingleAnimal>({
+    id: 0,
+    imageUrl: "",
+    isFed: false,
+    lastFed: "",
+    latinName: "",
+    longDescription: "",
+    medicine: "",
+    name: "",
+    shortDescription: "",
+    yearOfBirth: 0,
+  });
 
   let params = useParams();
-
-  const aAnimal = useSelector((state: IState) => state.animal.value);
 
   useEffect(() => {
     setSingleAnimals(JSON.parse(localStorage.getItem("animals") || "[]"));
   }, []);
+
+  useEffect(() => {
+    find();
+  });
+
+  const find = () => {
+    const findAnimal = singleAnimals.filter((s) => {
+      return s.id === Number(params.id);
+    });
+
+    for (let i = 0; i < findAnimal.length; i++) {
+      setAnimal(findAnimal[i]);
+    }
+  };
 
   let interval: NodeJS.Timer;
 
@@ -41,6 +65,7 @@ export const SingleAnimal = () => {
     const time = findAnimal.map((fa) => {
       return +new Date().getTime() - +new Date(fa.lastFed).getTime();
     });
+    // 10800000;
 
     if (time[0] > 10800000) {
       setGotFed(false);
@@ -54,14 +79,13 @@ export const SingleAnimal = () => {
   };
 
   useEffect(() => {
-    if (gotFed) {
+    if (animal.isFed === true) {
       interval = setInterval(() => {
         checkTime();
       }, 1000);
     }
   });
 
-  // Flytta till ShowAnimals
   const feed = (sa: ISingleAnimal) => {
     if (sa.isFed === false) {
       sa.isFed = true;
@@ -127,8 +151,6 @@ export const SingleAnimal = () => {
       <SingleAnimalWrapper>
         <SingleAnimaInfolWrapper>{showSingleAnimal}</SingleAnimaInfolWrapper>
       </SingleAnimalWrapper>
-
-      {aAnimal}
     </>
   );
 };

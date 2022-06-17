@@ -24,7 +24,7 @@ import { AboutBtn } from "./AboutBtn";
 
 export const ShowAnimals = () => {
   const [animals, setAnimals] = useState<IAnimals[]>([]);
-  const [isFed, setIsFed] = useState<boolean>(false);
+  const [needsToBeFed, setNeedsToBeFed] = useState<boolean>(true);
 
   const APIURL = "https://animals.azurewebsites.net/api/animals";
 
@@ -48,14 +48,13 @@ export const ShowAnimals = () => {
           <Name>
             {a.name}
             <Line>|</Line>
-
-            {}
-            <span>{`Behöver matas: ${a.isFed === false ? "Ja" : "Nej"}`}</span>
+            <span>{`Behöver matas: ${a.isFed ? "Nej" : "Ja"}`}</span>
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>
           <AnimalsImg
-            animalimg={a.imageUrl}
+            src={a.imageUrl}
+            // animalimg={a.imageUrl}
             onError={(e) => {
               e.currentTarget.src =
                 "https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg";
