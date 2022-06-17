@@ -3,21 +3,13 @@ interface IAnimalStyledImg {
   animalimg: string;
 }
 
-// background-image: url(${(props: IAnimalStyledImg) => props.animalimg});
 export const AnimalsImg = styled.img`
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
   width: 96%;
   height: 100%;
   border-radius: 2px;
 `;
 
 export const SingleAnimalImg = styled.img`
-  background-image: url(${(props: IAnimalStyledImg) => props.animalimg});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   width: 96%;
   height: 100%;
   border-radius: 2px;

@@ -11,7 +11,7 @@ import {
   MainWrapper,
   ShortInfoWrapper,
 } from "../../styleComponents/AnimalsWrappers";
-import { AnimalsImg, LogoImg } from "../../styleComponents/Images";
+import { AnimalsImg } from "../../styleComponents/Images";
 import {
   BirthHeader,
   Birthtxt,
@@ -24,10 +24,7 @@ import { AboutBtn } from "./AboutBtn";
 
 export const ShowAnimals = () => {
   const [animals, setAnimals] = useState<IAnimals[]>([]);
-  const [needsToBeFed, setNeedsToBeFed] = useState<boolean>(true);
-
   const APIURL = "https://animals.azurewebsites.net/api/animals";
-
   useEffect(() => {
     let local: IAnimals[] = JSON.parse(localStorage.getItem("animals") || "[]");
 
@@ -54,7 +51,6 @@ export const ShowAnimals = () => {
         <AnimalsImgWrapper>
           <AnimalsImg
             src={a.imageUrl}
-            // animalimg={a.imageUrl}
             onError={(e) => {
               e.currentTarget.src =
                 "https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg";

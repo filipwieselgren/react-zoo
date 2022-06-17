@@ -1,14 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IAnimals } from "../../models/IAnimals";
 import { ISingleAnimal } from "../../models/ISingleAnimal";
-import { animalSlice, isFed } from "../../redux/features/animalSlice";
-import { IState } from "../../redux/features/IState";
 import {
-  AnimalNameWrapper,
   FeedBtnWrapper,
-  ShortInfoWrapper,
   SingleAnimaInfolWrapper,
   SingleAnimalNameWrapper,
   SingleAnimalsImgWrapper,
@@ -114,7 +108,7 @@ export const SingleAnimal = () => {
             </SingleAnimalNameWrapper>
           </div>
           <SingleAnimalsImgWrapper>
-            <SingleAnimalImg animalimg={sa.imageUrl}></SingleAnimalImg>
+            <SingleAnimalImg src={sa.imageUrl}></SingleAnimalImg>
           </SingleAnimalsImgWrapper>
           <SingleInfoWrapper>
             <ShortInfo>
