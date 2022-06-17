@@ -41,6 +41,7 @@ export const AnimalWrapper = styled(Link)`
 
   @media only screen and (min-width: 1024px) {
     height: 70vh;
+    width: 25%;
   }
 `;
 
