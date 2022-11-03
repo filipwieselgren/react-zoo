@@ -59,7 +59,6 @@ export const SingleAnimal = () => {
     const time = findAnimal.map((fa) => {
       return +new Date().getTime() - +new Date(fa.lastFed).getTime();
     });
-    // 10800000;
 
     if (time[0] > 10800000) {
       setGotFed(false);
@@ -84,7 +83,11 @@ export const SingleAnimal = () => {
     if (sa.isFed === false) {
       sa.isFed = true;
       setGotFed(true);
-      sa.lastFed = new Date().toISOString();
+      const todaysDate = new Date();
+      const fedAt = new Date(todaysDate);
+      fedAt.setHours(fedAt.getHours() + 1);
+
+      sa.lastFed = fedAt.toISOString();
       storageLocal(singleAnimals);
     } else {
       alert(`${sa.name} behöver inte matas`);
