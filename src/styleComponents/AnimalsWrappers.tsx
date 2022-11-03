@@ -134,7 +134,7 @@ export const SingleAnimalWrapper = styled.div`
 `;
 
 export const SingleAnimaInfolWrapper = styled.div`
-  width: 50vw;
+  width: 80vw;
   border: 0.5px solid #333;
   border-radius: 10px;
   background-color: #f18b27;
@@ -143,7 +143,7 @@ export const SingleAnimaInfolWrapper = styled.div`
   text-decoration: none;
 
   @media only screen and (min-width: 768px) {
-    width: 80vw;
+    width: 50vw;
   }
 `;
 
