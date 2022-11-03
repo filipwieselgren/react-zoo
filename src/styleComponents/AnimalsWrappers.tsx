@@ -139,7 +139,7 @@ export const SingleAnimaInfolWrapper = styled.div`
   border-radius: 2px;
   background-color: #f18b27;
   margin: 0.5rem;
-  height: 70vh;
+  height: 50vh;
   text-decoration: none;
 
   @media only screen and (min-width: 768px) {
