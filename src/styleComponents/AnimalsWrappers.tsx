@@ -33,7 +33,7 @@ export const LogoWrapper = styled.div`
 export const AnimalWrapper = styled(Link)`
   width: 40vw;
   border: 0.5px solid #333;
-  border-radius: 2px;
+  border-radius: 10px;
   background-color: #f18b27;
   margin: 0.5rem;
   height: 33vh;
@@ -136,7 +136,7 @@ export const SingleAnimalWrapper = styled.div`
 export const SingleAnimaInfolWrapper = styled.div`
   width: 50vw;
   border: 0.5px solid #333;
-  border-radius: 2px;
+  border-radius: 10px;
   background-color: #f18b27;
   margin: 0.5rem;
   height: 50vh;
