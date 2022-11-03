@@ -14,7 +14,7 @@ export const SingleAnimalImg = styled.img`
   height: 100%;
   border-radius: 2px;
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 768px) {
     width: 50%;
   }
 `;
