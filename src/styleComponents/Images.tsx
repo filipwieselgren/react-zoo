@@ -10,7 +10,7 @@ export const AnimalsImg = styled.img`
 `;
 
 export const SingleAnimalImg = styled.img`
-  width: 10em;
+  width: 15em;
   border-radius: 5px;
 
   @media only screen and (min-width: 768px) {
