@@ -10,12 +10,10 @@ export const AnimalsImg = styled.img`
 `;
 
 export const SingleAnimalImg = styled.img`
-  width: 96%;
-  height: 100%;
+  width: 10em;
   border-radius: 5px;
 
   @media only screen and (min-width: 768px) {
-    width: 50%;
   }
 `;
 
