@@ -134,7 +134,7 @@ export const SingleAnimalWrapper = styled.div`
 `;
 
 export const SingleAnimaInfolWrapper = styled.div`
-  width: 90vw;
+  width: 50vw;
   border: 0.5px solid #333;
   border-radius: 2px;
   background-color: #f18b27;
