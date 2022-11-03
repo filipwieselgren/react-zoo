@@ -141,6 +141,10 @@ export const SingleAnimaInfolWrapper = styled.div`
   margin: 0.5rem;
   height: 70vh;
   text-decoration: none;
+
+  @media only screen and (min-width: 768px) {
+    width: 80vw;
+  }
 `;
 
 export const SingleAnimalsImgWrapper = styled.div`
