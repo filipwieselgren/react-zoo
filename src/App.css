@@ -25,3 +25,20 @@
   height: 7em;
   overflow: scroll;
 }
+
+.life-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.life {
+  display: flex;
+  width: 90%;
+  margin-right: 5px;
+  color: black;
+}
+
+.life div {
+  margin-right: 5px;
+  color: red;
+}

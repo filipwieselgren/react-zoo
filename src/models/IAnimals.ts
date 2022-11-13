@@ -9,4 +9,5 @@ export interface IAnimals {
   name: string;
   shortDescription: string;
   yearOfBirth: number;
+  life: number;
 }

@@ -60,7 +60,6 @@ export const ShowAnimals = () => {
             <>
               {a.name}
 
-              {showLifes}
               <Line>|</Line>
               <span>{`Behöver matas: ${
                 new Date().getTime() - timestamp < 10800000 ? "Nej" : "Ja"
@@ -88,6 +87,9 @@ export const ShowAnimals = () => {
               <Medtxt>{a.medicine}</Medtxt>
             </BirthMedTxtWrappper>
           </BirthMedWrapper>
+          <div className="life-wrapper">
+            <div className="life">Life: {showLifes}</div>
+          </div>
           <AboutBtn animal={a}></AboutBtn>
         </ShortInfoWrapper>
       </AnimalWrapper>
