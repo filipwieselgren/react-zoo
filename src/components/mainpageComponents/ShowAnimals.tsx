@@ -24,7 +24,9 @@ import { AboutBtn } from "./AboutBtn";
 
 export const ShowAnimals = () => {
   const [animals, setAnimals] = useState<IAnimals[]>([]);
+  const [gotFed, setGotFed] = useState<boolean>(false);
   const APIURL = "https://animals.azurewebsites.net/api/animals";
+
   useEffect(() => {
     let local: IAnimals[] = JSON.parse(localStorage.getItem("animals") || "[]");
 
@@ -39,13 +41,16 @@ export const ShowAnimals = () => {
   }, []);
 
   const allAnimals = animals.map((a) => {
+    const timestamp = new Date(a.lastFed).getTime() - 3600000;
     return (
       <AnimalWrapper to={"/animal/" + a.id} key={a.id}>
         <AnimalNameWrapper>
           <Name>
             {a.name}
             <Line>|</Line>
-            <span>{`Behöver matas: ${a.isFed ? "Nej" : "Ja"}`}</span>
+            <span>{`Behöver matas: ${
+              new Date().getTime() - timestamp < 10000 ? "Nej" : "Ja"
+            }`}</span>
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>

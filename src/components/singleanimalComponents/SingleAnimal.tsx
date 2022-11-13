@@ -57,10 +57,14 @@ export const SingleAnimal = () => {
     });
 
     const time = findAnimal.map((fa) => {
-      return +new Date().getTime() - +new Date(fa.lastFed).getTime();
+      const timestamp = new Date(fa.lastFed).getTime() - 3600000;
+
+      return new Date().getTime() - timestamp;
     });
 
-    if (time[0] > 10800000) {
+    console.log(time);
+
+    if (time[0] > 10000) {
       setGotFed(false);
       clearInterval(interval);
       findAnimal.map((fa) => {
