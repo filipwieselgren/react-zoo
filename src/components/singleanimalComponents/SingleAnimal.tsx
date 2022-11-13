@@ -64,7 +64,7 @@ export const SingleAnimal = () => {
 
     console.log(time);
 
-    if (time[0] > 10000) {
+    if (time[0] > 10800000) {
       setGotFed(false);
       clearInterval(interval);
       findAnimal.map((fa) => {
@@ -125,16 +125,6 @@ export const SingleAnimal = () => {
           </SingleAnimalsImgWrapper>
           <SingleInfoWrapper>
             <ShortInfo>
-              <div>
-                {sa.name} matades senast:
-                <div>
-                  {sa.lastFed.split("T")[0]} klockan{" "}
-                  {sa.lastFed.split("T")[1].split(".")[0]}
-                </div>
-              </div>
-              <div className="long-description-wrapper">
-                <div className="long-description">{sa.longDescription}</div>
-              </div>
               <FeedBtnWrapper>
                 <FeedBtn
                   onClick={() => {
@@ -146,6 +136,16 @@ export const SingleAnimal = () => {
                     : `Mata ${sa.name}`}
                 </FeedBtn>
               </FeedBtnWrapper>
+              <div>
+                {sa.name} matades senast:
+                <div>
+                  {sa.lastFed.split("T")[0]} klockan{" "}
+                  {sa.lastFed.split("T")[1].split(".")[0]}
+                </div>
+              </div>
+              <div className="long-description-wrapper">
+                <div className="long-description">{sa.longDescription}</div>
+              </div>
             </ShortInfo>
           </SingleInfoWrapper>
         </div>

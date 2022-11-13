@@ -123,7 +123,7 @@ export const FeedBtnWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 2em;
+  margin-bottom: 2em;
 `;
 
 export const SingleAnimalWrapper = styled.div`

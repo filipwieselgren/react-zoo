@@ -21,6 +21,9 @@ import {
   Name,
 } from "../../styleComponents/Text";
 import { AboutBtn } from "./AboutBtn";
+import { FaHeart } from "react-icons/fa";
+
+let lifes = [<FaHeart />, <FaHeart />, <FaHeart />];
 
 export const ShowAnimals = () => {
   const [animals, setAnimals] = useState<IAnimals[]>([]);
@@ -40,17 +43,29 @@ export const ShowAnimals = () => {
     }
   }, []);
 
+  const takeLife = () => {
+    showLifes.slice(0, 1);
+  };
+
+  const showLifes = lifes.map((l) => {
+    return <div>{l}</div>;
+  });
+
   const allAnimals = animals.map((a) => {
     const timestamp = new Date(a.lastFed).getTime() - 3600000;
     return (
       <AnimalWrapper to={"/animal/" + a.id} key={a.id}>
         <AnimalNameWrapper>
           <Name>
-            {a.name}
-            <Line>|</Line>
-            <span>{`Behöver matas: ${
-              new Date().getTime() - timestamp < 10000 ? "Nej" : "Ja"
-            }`}</span>
+            <>
+              {a.name}
+
+              {showLifes}
+              <Line>|</Line>
+              <span>{`Behöver matas: ${
+                new Date().getTime() - timestamp < 10800000 ? "Nej" : "Ja"
+              }`}</span>
+            </>
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>
