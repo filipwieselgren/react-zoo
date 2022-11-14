@@ -33,6 +33,10 @@ export const FeedBtn = styled.button`
   & {
     cursor: pointer;
   }
+
+  @media only screen and (min-width: 1024px) {
+    width: 33%;
+  }
 `;
 export const BackBtn = styled(Link)`
   padding: 0.5em;
