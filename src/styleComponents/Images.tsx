@@ -7,6 +7,7 @@ export const AnimalsImg = styled.img`
   width: 96%;
   height: 100%;
   border-radius: 5px;
+  object-fit: fill;
 `;
 
 export const SingleAnimalImg = styled.img`

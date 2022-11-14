@@ -40,8 +40,9 @@ export const AnimalWrapper = styled(Link)`
   text-decoration: none;
 
   @media only screen and (min-width: 1024px) {
-    height: 70vh;
     width: 25%;
+    max-height: 50vh;
+    min-height: 50vh;
   }
 `;
 
@@ -77,7 +78,7 @@ export const SingleAnimalNameWrapper = styled.div`
 
 export const ShortInfoWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  margin-bottom: 20px;
 `;
 export const SingleInfoWrapper = styled.div`
   width: 100%;
@@ -114,10 +115,10 @@ export const BirthMedTxtWrappper = styled.div`
 
 export const AboutBtnWrapper = styled.div`
   width: 100%;
-  height: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 `;
 export const FeedBtnWrapper = styled.div`
   width: 100%;
@@ -137,9 +138,8 @@ export const SingleAnimaInfolWrapper = styled.div`
   width: 80vw;
   border: 0.5px solid #333;
   border-radius: 10px;
-  background-color: #f18b27;
+  background-color: #f161293b;
   margin: 0.5rem;
-  /* height: 50vh; */
   text-decoration: none;
 
   @media only screen and (min-width: 768px) {
@@ -149,7 +149,6 @@ export const SingleAnimaInfolWrapper = styled.div`
 
 export const SingleAnimalsImgWrapper = styled.div`
   width: 100%;
-  height: 10em;
   display: flex;
   flex-direction: column;
   align-items: center;
