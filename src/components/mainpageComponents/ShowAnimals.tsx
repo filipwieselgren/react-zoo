@@ -28,6 +28,8 @@ let lifes = [<FaHeart />, <FaHeart />, <FaHeart />];
 export const ShowAnimals = () => {
   const [animals, setAnimals] = useState<IAnimals[]>([]);
   const [gotFed, setGotFed] = useState<boolean>(false);
+  const [sliceLife, setSliceLife] = useState<boolean>(false);
+
   const APIURL = "https://animals.azurewebsites.net/api/animals";
 
   useEffect(() => {
@@ -43,16 +45,14 @@ export const ShowAnimals = () => {
     }
   }, []);
 
-  const takeLife = () => {
-    showLifes.slice(0, 1);
-  };
-
   const showLifes = lifes.map((l) => {
     return <div>{l}</div>;
   });
 
   const allAnimals = animals.map((a) => {
+    let lifes = [<FaHeart />, <FaHeart />, <FaHeart />];
     const timestamp = new Date(a.lastFed).getTime() - 3600000;
+
     return (
       <AnimalWrapper to={"/animal/" + a.id} key={a.id}>
         <AnimalNameWrapper>
@@ -75,6 +75,7 @@ export const ShowAnimals = () => {
             }}
           ></div>
         </AnimalsImgWrapper>
+
         <ShortInfoWrapper>
           <BirthMedWrapper>
             <BirthMedHeaderWrappper>
@@ -87,6 +88,9 @@ export const ShowAnimals = () => {
             </BirthMedTxtWrappper>
           </BirthMedWrapper>
 
+          <div className="life-wrapper">
+            <div className="life">Life:{showLifes} </div>
+          </div>
           <AboutBtn animal={a}></AboutBtn>
         </ShortInfoWrapper>
       </AnimalWrapper>
