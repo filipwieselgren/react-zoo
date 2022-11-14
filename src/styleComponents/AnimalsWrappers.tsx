@@ -36,7 +36,8 @@ export const AnimalWrapper = styled(Link)`
   border-radius: 10px;
   background-color: #f18b27;
   margin: 0.5rem;
-  height: 33vh;
+  min-height: 33vh;
+  max-height: 50vh;
   text-decoration: none;
 
   @media only screen and (min-width: 1024px) {
