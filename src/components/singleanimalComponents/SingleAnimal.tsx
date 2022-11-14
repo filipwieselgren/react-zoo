@@ -12,6 +12,7 @@ import {
 import { BackBtn, FeedBtn } from "../../styleComponents/Buttons";
 import { SingleAnimalImg } from "../../styleComponents/Images";
 import { ShortInfo } from "../../styleComponents/Text";
+import { IoReturnDownBackOutline } from "react-icons/io5";
 
 export const SingleAnimal = () => {
   const [singleAnimals, setSingleAnimals] = useState<ISingleAnimal[]>([]);
@@ -108,7 +109,9 @@ export const SingleAnimal = () => {
         <div key={sa.id}>
           <div className="name-wrapper">
             <SingleAnimalNameWrapper>
-              <BackBtn to={"/"}>Tillbaka ↩</BackBtn>
+              <BackBtn to={"/"}>
+                Tillbaka <IoReturnDownBackOutline />
+              </BackBtn>
               <div className="single-name">
                 <span>{sa.name}</span>
               </div>
