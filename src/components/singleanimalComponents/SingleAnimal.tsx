@@ -63,8 +63,6 @@ export const SingleAnimal = () => {
       return new Date().getTime() - timestamp;
     });
 
-    console.log(time);
-
     if (time[0] > 10800000) {
       setGotFed(false);
       clearInterval(interval);

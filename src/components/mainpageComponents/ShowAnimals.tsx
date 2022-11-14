@@ -86,9 +86,7 @@ export const ShowAnimals = () => {
               <Medtxt>{a.medicine}</Medtxt>
             </BirthMedTxtWrappper>
           </BirthMedWrapper>
-          <div className="life-wrapper">
-            <div className="life">Life: {showLifes}</div>
-          </div>
+
           <AboutBtn animal={a}></AboutBtn>
         </ShortInfoWrapper>
       </AnimalWrapper>

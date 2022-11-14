@@ -23,10 +23,10 @@ export const NavWrapper = styled.nav`
 `;
 
 export const LogoWrapper = styled.div`
-  width: 80%;
+  width: 50%;
 
   @media only screen and (min-width: 1024px) {
-    width: 50%;
+    width: 40%;
   }
 `;
 
@@ -36,14 +36,11 @@ export const AnimalWrapper = styled(Link)`
   border-radius: 10px;
   background-color: #f18b27;
   margin: 0.5rem;
-  min-height: 50vh;
-  max-height: 50vh;
+
   text-decoration: none;
 
   @media only screen and (min-width: 1024px) {
     width: 25%;
-    max-height: 50vh;
-    min-height: 50vh;
   }
 `;
 
@@ -58,10 +55,13 @@ export const MainWrapper = styled.main`
 
 export const AnimalsImgWrapper = styled.div`
   width: 100%;
-  height: 40%;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media only screen and (min-width: 1024px) {
+    height: 40vh;
+  }
 `;
 
 export const AnimalNameWrapper = styled.div`
