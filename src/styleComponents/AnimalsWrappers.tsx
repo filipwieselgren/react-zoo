@@ -36,7 +36,7 @@ export const AnimalWrapper = styled(Link)`
   border-radius: 10px;
   background-color: #f18b27;
   margin: 0.5rem;
-  min-height: 33vh;
+  min-height: 50vh;
   max-height: 50vh;
   text-decoration: none;
 
@@ -54,7 +54,6 @@ export const MainWrapper = styled.main`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  position: fixed;
 `;
 
 export const AnimalsImgWrapper = styled.div`
