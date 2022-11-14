@@ -56,6 +56,7 @@ body {
 }
 
 .animalsImg {
+  border-radius: 5px;
   height: 100%;
   width: 90%;
   background-position: center;
