@@ -68,13 +68,12 @@ export const ShowAnimals = () => {
           </Name>
         </AnimalNameWrapper>
         <AnimalsImgWrapper>
-          <AnimalsImg
-            src={a.imageUrl}
-            onError={(e) => {
-              e.currentTarget.src =
-                "https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg";
+          <div
+            className="animalsImg"
+            style={{
+              backgroundImage: `url(${a.imageUrl}), url(https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg)`,
             }}
-          ></AnimalsImg>
+          ></div>
         </AnimalsImgWrapper>
         <ShortInfoWrapper>
           <BirthMedWrapper>
