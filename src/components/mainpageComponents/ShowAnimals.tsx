@@ -23,7 +23,7 @@ import {
 import { AboutBtn } from "./AboutBtn";
 import { FaHeart } from "react-icons/fa";
 
-let lifes = [<FaHeart />, <FaHeart />, <FaHeart />];
+// let lifes = [<FaHeart />, <FaHeart />, <FaHeart />];
 
 export const ShowAnimals = () => {
   const [animals, setAnimals] = useState<IAnimals[]>([]);
@@ -45,9 +45,9 @@ export const ShowAnimals = () => {
     }
   }, []);
 
-  const showLifes = lifes.map((l) => {
-    return <div>{l}</div>;
-  });
+  // const showLifes = lifes.map((l) => {
+  //   return <div>{l}</div>;
+  // });
 
   const allAnimals = animals.map((a) => {
     let lifes = [<FaHeart />, <FaHeart />, <FaHeart />];
@@ -88,9 +88,9 @@ export const ShowAnimals = () => {
             </BirthMedTxtWrappper>
           </BirthMedWrapper>
 
-          <div className="life-wrapper">
+          {/* <div className="life-wrapper">
             <div className="life">Life:{showLifes} </div>
-          </div>
+          </div> */}
           <AboutBtn animal={a}></AboutBtn>
         </ShortInfoWrapper>
       </AnimalWrapper>
